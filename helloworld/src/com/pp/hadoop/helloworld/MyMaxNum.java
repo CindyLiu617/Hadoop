@@ -28,7 +28,7 @@ public class MyMaxNum {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         job.setCombinerClass(MyCombiner.class);
-        FileInputFormat.addInputPath(job, new Path("/huhui/nums.txt"));
+        FileInputFormat.addInputPath(job, new Path("/nums.txt"));
         FileOutputFormat.setOutputPath(job, new Path("/output"));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
