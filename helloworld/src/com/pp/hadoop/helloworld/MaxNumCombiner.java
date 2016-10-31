@@ -6,12 +6,12 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 import java.io.IOException;
 
-public class MyReducer extends Reducer<Text, IntWritable, Text, IntWritable> {
+class MaxNumCombiner extends Reducer<Text, IntWritable, Text, IntWritable> {
 
     @Override
     protected void reduce(Text key, Iterable<IntWritable> values,
-                          Context context) throws IOException, InterruptedException {
-        // TODO Auto-generated method stub
+                          Context context)
+            throws IOException, InterruptedException {
         int temp = Integer.MIN_VALUE;
         for (IntWritable value : values) {
             if (value.get() > temp) {
